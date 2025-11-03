@@ -69,3 +69,15 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 renderCalendar();
+
+
+const clockElement = document.createElement("div");
+clockElement.classList.add("digital-clock");
+document.querySelector(".container").appendChild(clockElement);
+
+const updateClock = () => {
+    const now = new Date();
+    clockElement.textContent = now.toLocaleTimeString();
+};
+setInterval(updateClock, 1000);
+updateClock();
