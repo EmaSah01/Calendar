@@ -69,3 +69,22 @@ document.querySelector(".next").addEventListener("click", () => {
 });
 
 renderCalendar();
+
+
+const alarmElement = document.createElement("div");
+alarmElement.classList.add("alarm");
+document.querySelector(".container").appendChild(alarmElement);
+
+const setAlarm = () => {
+    const now = new Date();
+    const alarmTime = new Date();
+    alarmTime.setSeconds(now.getSeconds() + 10); // alarm za 10 sekundi
+    const checkAlarm = setInterval(() => {
+        const current = new Date();
+        if (current >= alarmTime) {
+            alert("Alarm! ⏰");
+            clearInterval(checkAlarm);
+        }
+    }, 1000);
+};
+setAlarm();
